@@ -1,0 +1,29 @@
+.active {
+    animation: changeColor 0.2s none, vibration 0.05s infinite none;
+}
+
+@keyframes changeColor {
+    from {
+        color: inherit;
+        border-color: inherit;
+    }
+    to {
+        color: yellowgreen;
+        border-color: yellowgreen;
+    }
+}
+
+@keyframes vibration {
+    0% {
+        transform: translate3d(1px, 1px, 0) rotate(2deg);
+    }
+    25% {
+        transform: translate3d(0, 0, 0) rotate(0);
+    }
+    50% {
+        transform: translate3d(-1px, -1px, 0) rotate(-2deg);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0);
+    }
+}

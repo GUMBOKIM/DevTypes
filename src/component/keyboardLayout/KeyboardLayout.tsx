@@ -12,11 +12,9 @@ const KeyboardLayout = React.forwardRef<HTMLDivElement>((_, ref) => {
     )
 });
 
-const KeyCap: React.FC<IKeyCap> = ({size, lower, upper, center}) => {
+const KeyCap: React.FC<IKeyCap> = ({keyCode, size, lower, upper, center}) => {
     let inner = null;
-    let id = 'empty';
     if (lower) {
-        id = lower;
         inner = (
             <>
                 <S.TextUpper>{upper}</S.TextUpper>
@@ -24,12 +22,11 @@ const KeyCap: React.FC<IKeyCap> = ({size, lower, upper, center}) => {
             </>
         )
     } else if (center) {
-        id = center;
         inner = <S.TextCenter>{center}</S.TextCenter>
     }
 
     return (
-        <S.KeyCapOuter className={id} size={size}>
+        <S.KeyCapOuter id={keyCode} unitSize={size}>
             <S.KeyCapInner>
                 {inner}
             </S.KeyCapInner>

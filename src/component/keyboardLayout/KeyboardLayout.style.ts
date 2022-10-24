@@ -9,8 +9,8 @@ export const KeyRow = styled.div`
   display: flex;
 `
 
-export const KeyCapOuter = styled.div<{ size: number; color?: string;}>`
-  width: ${props => props.size * 3}rem;
+export const KeyCapOuter = styled.div<{ unitSize: number;}>`
+  width: ${props => props.unitSize * 3}rem;
   height: 3rem;
   padding: 0.2rem;
   box-sizing: border-box;
@@ -19,7 +19,8 @@ export const KeyCapOuter = styled.div<{ size: number; color?: string;}>`
 
 export const KeyCapInner = styled.div`
   position: relative;
-  
+  transform-origin: top left;
+
   width: 100%;
   height: 100%;;
   padding: 0 0.3rem;
