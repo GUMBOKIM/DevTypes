@@ -1,0 +1,40 @@
+.line {
+    display: flex;
+    align-items: center;
+}
+
+.indent {
+    width: 0.8rem;
+    color: #bbbb55;
+}
+
+.word {
+    display: flex;
+    align-items: center;
+}
+
+.word.incollect > span {
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    transition: border-bottom-width 1s;
+}
+
+.char {
+    color: grey;
+    transition: color 0.3s;
+}
+
+.char.now {
+    background-color: rgba(227, 227, 227, 0.5);
+}
+
+.char.collect {
+    color: green;
+    transition: color 0.3s;
+}
+
+.char.incollect {
+    color: red;
+    transition: color 0.3s;
+}
+
+

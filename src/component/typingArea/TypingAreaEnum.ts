@@ -1,0 +1,6 @@
+export const TYPING_AREA_STATUS = {
+    SELECT_SCRIPT: 0,
+    INPUT_START: 1,
+    COUNT_DOWN: 2,
+    TYPING_SCRIPT: 3,
+}
