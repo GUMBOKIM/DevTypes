@@ -1,101 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-
-const KeyboardLayout: React.FC = () => {
-    return (
-        <KeyboardContainer>
-            {KeyCapsData.map((row, rowIndex) => <KeyRow key={rowIndex}>
-                {row.map((col, colIndex) => <KeyCap key={colIndex} keycap={col}/>)}
-            </KeyRow>)}
-        </KeyboardContainer>
-    )
-}
-
-const KeyboardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const KeyRow = styled.div`
-  display: flex;
-`
-
-const KeyCap: React.FC<{ keycap: IKeyCap }> = ({keycap}) => {
-    const {size, lower, upper, accuracy = 100} = keycap;
-
-    if (lower && upper) {
-        return (
-            <KeyCapSize size={size} accuracy={accuracy}>
-                <KeyCapBox>
-                    <TextUpper>{upper}</TextUpper>
-                    <TextLower>{lower}</TextLower>
-                </KeyCapBox>
-            </KeyCapSize>
-        )
-    } else if (lower) {
-        return (
-            <KeyCapSize size={size} accuracy={accuracy}>
-                <KeyCapBox>
-                    <span>{lower}</span>
-                </KeyCapBox>
-            </KeyCapSize>
-        )
-    } else {
-        return (
-            <KeyCapSize size={size} accuracy={accuracy}>
-                <KeyCapBox/>
-            </KeyCapSize>
-        )
-    }
-}
-
-const KeyCapSize = styled.div<{ size: number; accuracy: number }>`
-  box-sizing: border-box;
-  padding: 0.2rem;
-  width: ${props => props.size * 3}rem;
-  height: 3rem;
-  color: ${({accuracy}) => {
-    const redRatio = accuracy >= 60 ? (100 - accuracy) / 30 : 1;
-    return `rgb(${Math.floor((255 - 169) * redRatio + 169)}, 169, 169)`;
-  }}
-`
-
-const KeyCapBox = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;;
-
-  box-sizing: border-box;
-  padding: 0.3rem;
-  border: 3px solid darkgrey;
-  border-radius: 6px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-`
-
-const TextUpper = styled.span`
-  position: absolute;
-  top: 0rem;
-  left: 0.3rem;
-`
-
-const TextLower = styled.span`
-  position: absolute;
-  top: 1rem;
-  right: 0.3rem;
-`
-
-interface IKeyCap {
+export interface IKeyCap {
     size: number;
     upper?: string;
     lower?: string;
-    accuracy?: number;
+    center?: string;
 }
 
-const KeyCapsData: IKeyCap[][] = [
+export const KeyCapsData: IKeyCap[][] = [
     [
         {size: 1, upper: `~`, lower: `\``},
         {size: 1, upper: `!`, lower: `1`},
@@ -141,10 +51,10 @@ const KeyCapsData: IKeyCap[][] = [
         {size: 1, upper: `L`, lower: `l`},
         {size: 1, upper: `:`, lower: `;`},
         {size: 1, upper: `"`, lower: `'`},
-        {size: 2.25, lower: `enter`},
+        {size: 2.25, center: `Enter`},
     ],
     [
-        {size: 2.25, lower: `shift`},
+        {size: 2.25, center: `Shift`},
         {size: 1, upper: `Z`, lower: `z`},
         {size: 1, upper: `X`, lower: `x`},
         {size: 1, upper: `C`, lower: `c`},
@@ -161,13 +71,10 @@ const KeyCapsData: IKeyCap[][] = [
         {size: 1.25},
         {size: 1.25},
         {size: 1.25},
-        {size: 6.25, lower: `space bar`},
+        {size: 6.25, center: `SpaceBar`},
         {size: 1.25},
         {size: 1.25},
         {size: 1.25},
         {size: 1.25},
     ]
-]
-
-
-export default KeyboardLayout;
+];

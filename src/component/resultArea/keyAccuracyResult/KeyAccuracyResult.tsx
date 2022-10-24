@@ -1,5 +1,5 @@
 import React from "react";
-import KeyboardLayout from "./KeyboardLayout";
+import KeyboardLayout from "../../keyboardLayout/KeyboardLayout";
 import KeyAccuracyChart from "./KeyAccuracyChart";
 import * as S from "../ResultArea.style"
 

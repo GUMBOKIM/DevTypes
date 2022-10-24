@@ -3,14 +3,15 @@ import AboutPage from "./aboutPage/AboutPage";
 import TypePage from "./typePage/TypePage";
 import ContactPage from "./contactPage/ContactPage";
 import {ReactNode} from "react";
+import TestPage from "./testPage/TestPage";
 
-type PageKind = "HOME" | "ABOUT" | "TYPE" | "CONTACT"
+type PageKind = "HOME" | "ABOUT" | "TYPE" | "CONTACT" | "TEST"
 
 interface IPageInfo {
     kind: PageKind;
     route: string;
     page: ReactNode;
-};
+}
 
 const PageInfo: IPageInfo[] = [
     {
@@ -25,13 +26,18 @@ const PageInfo: IPageInfo[] = [
     },
     {
         kind: "TYPE",
-        route: "/test",
+        route: "/type",
         page: <TypePage />
     },
     {
         kind: "CONTACT",
         route: "/contact",
         page: <ContactPage />
+    },
+    {
+        kind: "TEST",
+        route: "/test",
+        page: <TestPage />
     },
 ]
 
