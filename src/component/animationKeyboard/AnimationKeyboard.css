@@ -1,5 +1,5 @@
 .active {
-    animation: changeColor 0.2s none, vibration 0.05s infinite none;
+    animation: changeColor 0.2s forwards, vibrateMotion 0.05s infinite;
 }
 
 @keyframes changeColor {
@@ -13,17 +13,17 @@
     }
 }
 
-@keyframes vibration {
+@keyframes vibrateMotion {
     0% {
-        transform: translate3d(1px, 1px, 0) rotate(2deg);
+        transform: translate3d(1px, 1px, 0) rotate(0);
     }
     25% {
-        transform: translate3d(0, 0, 0) rotate(0);
+        transform: translate3d(0, 0, 0) rotate(2deg);
     }
     50% {
-        transform: translate3d(-1px, -1px, 0) rotate(-2deg);
+        transform: translate3d(-1px, -1px, 0) rotate(0);
     }
     100% {
-        transform: translate3d(0, 0, 0) rotate(0);
+        transform: translate3d(0, 0, 0) rotate(-2deg);
     }
 }

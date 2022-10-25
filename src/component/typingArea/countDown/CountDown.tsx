@@ -12,7 +12,7 @@ const CountDown: React.FC<{ moveNextScene: () => void }> = ({moveNextScene}) => 
     }, [])
 
     useEffect(() => {
-        if(count == 0) {
+        if(count === 0) {
             moveNextScene();
         }
     }, [count])
